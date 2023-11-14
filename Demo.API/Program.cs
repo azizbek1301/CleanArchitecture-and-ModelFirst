@@ -1,4 +1,6 @@
 using Demo.Application.DataAccess;
+using Demo.Application.Repositories;
+using Demo.Infrastructure.Services.UserServices;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,10 +12,13 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<DemoDbContext>(options=>
+builder.Services.AddDbContext<DemoDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DemoStagingConnection"));
 });
+
+builder.Services.AddScoped<IDemoRepository, DemoRepository>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 var app = builder.Build();
 
