@@ -1,4 +1,4 @@
-﻿using Demo.Domain.Models;
+﻿using Demo.Domain.Models.UserModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace Demo.Application.DataAccess
