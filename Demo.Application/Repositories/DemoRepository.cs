@@ -12,7 +12,7 @@ namespace Demo.Application.Repositories
             _dbContext = context;
             
         }
-        public async ValueTask<IEnumerable<User>> GetAllUsers()
+        public async ValueTask<IEnumerable<User>> GetAllUsersAsync()
         {
             IEnumerable<User> users=await _dbContext.Users.ToListAsync();
             return users;

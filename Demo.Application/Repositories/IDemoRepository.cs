@@ -4,6 +4,6 @@ namespace Demo.Application.Repositories
 {
     public interface IDemoRepository
     {
-        public IEnumerable<User> GetAllUsers();
+        public ValueTask<IEnumerable<User>> GetAllUsersAsync();
     }
 }
